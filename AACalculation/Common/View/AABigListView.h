@@ -3,7 +3,7 @@
 //  JDHaiGo
 //
 //  Created by FairySong on 15/8/4.
-//  Copyright (c) 2015年 京东商城. All rights reserved.
+//  Copyright (c) 2015年 云帆. All rights reserved.
 //
 
 #import  <UIKit/UIKit.h>

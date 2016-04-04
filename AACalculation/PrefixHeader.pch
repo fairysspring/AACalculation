@@ -17,5 +17,10 @@
 //base view controller
 #import "BaseViewController.h"
 #import "AANavigationController.h"
+//view
+#import "UIView+RSAdditions.h"
+//TOOL
+#import "AAColorManager.h"
+#import "Masonry.h"
 
 #endif /* PrefixHeader_pch */

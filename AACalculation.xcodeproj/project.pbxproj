@@ -12,10 +12,16 @@
 		2C43E9D61CAE6E6000032FD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C43E9D51CAE6E6000032FD0 /* Assets.xcassets */; };
 		2C43E9D91CAE6E6000032FD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C43E9D71CAE6E6000032FD0 /* LaunchScreen.storyboard */; };
 		2C43E9EF1CAE736A00032FD0 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43E9ED1CAE736A00032FD0 /* HomeViewController.m */; };
-		2C43E9F01CAE736A00032FD0 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C43E9EE1CAE736A00032FD0 /* HomeViewController.xib */; };
 		2C43E9F51CAE79FE00032FD0 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43E9F41CAE79FE00032FD0 /* BaseViewController.m */; };
 		2C43E9FB1CAE7B2900032FD0 /* AANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43E9FA1CAE7B2900032FD0 /* AANavigationController.m */; };
 		2C43E9FE1CAE7CAA00032FD0 /* AABigListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43E9FD1CAE7CAA00032FD0 /* AABigListView.m */; };
+		2C43EA011CB2B0C700032FD0 /* AAColorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43EA001CB2B0C700032FD0 /* AAColorManager.m */; };
+		2C43EA051CB2B1DF00032FD0 /* ActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43EA031CB2B1DF00032FD0 /* ActivityTableViewCell.m */; };
+		2C43EA061CB2B1DF00032FD0 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C43EA041CB2B1DF00032FD0 /* ActivityTableViewCell.xib */; };
+		2C43EA0B1CB2B8B600032FD0 /* ActivityDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43EA091CB2B8B600032FD0 /* ActivityDetailViewController.m */; };
+		2C43EA0F1CB2B99C00032FD0 /* AAScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43EA0E1CB2B99C00032FD0 /* AAScrollView.m */; };
+		2C43EA131CB2BC9E00032FD0 /* ActivityDetailItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43EA121CB2BC9E00032FD0 /* ActivityDetailItemView.m */; };
+		2C43EA151CB2BCAA00032FD0 /* ActivityDetailItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C43EA141CB2BCAA00032FD0 /* ActivityDetailItemView.xib */; };
 		3D164B2E650E97563B26C39E /* libPods-AACalculation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25A8D9BFC3F3D17FABD2A8E /* libPods-AACalculation.a */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +35,6 @@
 		2C43E9DA1CAE6E6000032FD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C43E9EC1CAE736A00032FD0 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		2C43E9ED1CAE736A00032FD0 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		2C43E9EE1CAE736A00032FD0 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		2C43E9F11CAE780F00032FD0 /* ViewInfoMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewInfoMacro.h; sourceTree = "<group>"; };
 		2C43E9F21CAE78A800032FD0 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2C43E9F31CAE79FE00032FD0 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -38,6 +43,18 @@
 		2C43E9FA1CAE7B2900032FD0 /* AANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AANavigationController.m; sourceTree = "<group>"; };
 		2C43E9FC1CAE7CAA00032FD0 /* AABigListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABigListView.h; sourceTree = "<group>"; };
 		2C43E9FD1CAE7CAA00032FD0 /* AABigListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AABigListView.m; sourceTree = "<group>"; };
+		2C43E9FF1CB2B0C700032FD0 /* AAColorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAColorManager.h; sourceTree = "<group>"; };
+		2C43EA001CB2B0C700032FD0 /* AAColorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAColorManager.m; sourceTree = "<group>"; };
+		2C43EA021CB2B1DF00032FD0 /* ActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityTableViewCell.h; sourceTree = "<group>"; };
+		2C43EA031CB2B1DF00032FD0 /* ActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityTableViewCell.m; sourceTree = "<group>"; };
+		2C43EA041CB2B1DF00032FD0 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
+		2C43EA081CB2B8B600032FD0 /* ActivityDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailViewController.h; sourceTree = "<group>"; };
+		2C43EA091CB2B8B600032FD0 /* ActivityDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailViewController.m; sourceTree = "<group>"; };
+		2C43EA0D1CB2B99C00032FD0 /* AAScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAScrollView.h; sourceTree = "<group>"; };
+		2C43EA0E1CB2B99C00032FD0 /* AAScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAScrollView.m; sourceTree = "<group>"; };
+		2C43EA111CB2BC9E00032FD0 /* ActivityDetailItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailItemView.h; sourceTree = "<group>"; };
+		2C43EA121CB2BC9E00032FD0 /* ActivityDetailItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailItemView.m; sourceTree = "<group>"; };
+		2C43EA141CB2BCAA00032FD0 /* ActivityDetailItemView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityDetailItemView.xib; sourceTree = "<group>"; };
 		9C687374C899E990ED8EC46A /* Pods-AACalculation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AACalculation.release.xcconfig"; path = "Pods/Target Support Files/Pods-AACalculation/Pods-AACalculation.release.xcconfig"; sourceTree = "<group>"; };
 		AB8093AA5FF3C75099597436 /* Pods-AACalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AACalculation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AACalculation/Pods-AACalculation.debug.xcconfig"; sourceTree = "<group>"; };
 		D25A8D9BFC3F3D17FABD2A8E /* libPods-AACalculation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AACalculation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +150,8 @@
 		2C43E9E31CAE727500032FD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C43EA0D1CB2B99C00032FD0 /* AAScrollView.h */,
+				2C43EA0E1CB2B99C00032FD0 /* AAScrollView.m */,
 				2C43E9FC1CAE7CAA00032FD0 /* AABigListView.h */,
 				2C43E9FD1CAE7CAA00032FD0 /* AABigListView.m */,
 			);
@@ -155,6 +174,8 @@
 			children = (
 				2C43E9D51CAE6E6000032FD0 /* Assets.xcassets */,
 				2C43E9D71CAE6E6000032FD0 /* LaunchScreen.storyboard */,
+				2C43E9FF1CB2B0C700032FD0 /* AAColorManager.h */,
+				2C43EA001CB2B0C700032FD0 /* AAColorManager.m */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -178,6 +199,7 @@
 		2C43E9E81CAE727500032FD0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2C43EA071CB2B88D00032FD0 /* ActivityDetailViewController */,
 				2C43E9E91CAE727500032FD0 /* HomeViewController */,
 			);
 			path = ViewController;
@@ -189,7 +211,6 @@
 				2C43E9EB1CAE72A600032FD0 /* View */,
 				2C43E9EC1CAE736A00032FD0 /* HomeViewController.h */,
 				2C43E9ED1CAE736A00032FD0 /* HomeViewController.m */,
-				2C43E9EE1CAE736A00032FD0 /* HomeViewController.xib */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -197,8 +218,31 @@
 		2C43E9EB1CAE72A600032FD0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2C43EA021CB2B1DF00032FD0 /* ActivityTableViewCell.h */,
+				2C43EA031CB2B1DF00032FD0 /* ActivityTableViewCell.m */,
+				2C43EA041CB2B1DF00032FD0 /* ActivityTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2C43EA071CB2B88D00032FD0 /* ActivityDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2C43EA101CB2BC7800032FD0 /* view */,
+				2C43EA081CB2B8B600032FD0 /* ActivityDetailViewController.h */,
+				2C43EA091CB2B8B600032FD0 /* ActivityDetailViewController.m */,
+			);
+			path = ActivityDetailViewController;
+			sourceTree = "<group>";
+		};
+		2C43EA101CB2BC7800032FD0 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				2C43EA111CB2BC9E00032FD0 /* ActivityDetailItemView.h */,
+				2C43EA141CB2BCAA00032FD0 /* ActivityDetailItemView.xib */,
+				2C43EA121CB2BC9E00032FD0 /* ActivityDetailItemView.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 		F3C07CC654B67B4C815EFD19 /* Pods */ = {
@@ -270,8 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C43E9D91CAE6E6000032FD0 /* LaunchScreen.storyboard in Resources */,
+				2C43EA151CB2BCAA00032FD0 /* ActivityDetailItemView.xib in Resources */,
 				2C43E9D61CAE6E6000032FD0 /* Assets.xcassets in Resources */,
-				2C43E9F01CAE736A00032FD0 /* HomeViewController.xib in Resources */,
+				2C43EA061CB2B1DF00032FD0 /* ActivityTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,11 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C43EA011CB2B0C700032FD0 /* AAColorManager.m in Sources */,
+				2C43EA0F1CB2B99C00032FD0 /* AAScrollView.m in Sources */,
 				2C43E9CE1CAE6E6000032FD0 /* AppDelegate.m in Sources */,
+				2C43EA051CB2B1DF00032FD0 /* ActivityTableViewCell.m in Sources */,
+				2C43EA0B1CB2B8B600032FD0 /* ActivityDetailViewController.m in Sources */,
 				2C43E9F51CAE79FE00032FD0 /* BaseViewController.m in Sources */,
 				2C43E9FB1CAE7B2900032FD0 /* AANavigationController.m in Sources */,
 				2C43E9CB1CAE6E6000032FD0 /* main.m in Sources */,
 				2C43E9EF1CAE736A00032FD0 /* HomeViewController.m in Sources */,
+				2C43EA131CB2BC9E00032FD0 /* ActivityDetailItemView.m in Sources */,
 				2C43E9FE1CAE7CAA00032FD0 /* AABigListView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
