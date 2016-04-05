@@ -49,7 +49,7 @@
     self.wPersons.contentLabel.text = @"18个";
     WS();
     self.wPersons.tapBlock = ^(){
-        PersonsViewController *vc = [[PersonsViewController alloc] init];
+        PersonsViewController *vc = [[PersonsViewController alloc] initWithActivitySid:@(22)];
         [weakself.navigationController pushViewController:vc animated:YES];
     };
 }
@@ -59,7 +59,7 @@
     self.wPay.contentLabel.text = @"¥2000";
     WS();
     self.wPay.tapBlock = ^(){
-        PayListViewController *vc = [[PayListViewController alloc] init];
+        PayListViewController *vc = [[PayListViewController alloc] initWithActivitySid:@(22)];
         [weakself.navigationController pushViewController:vc animated:YES];
     };
 }

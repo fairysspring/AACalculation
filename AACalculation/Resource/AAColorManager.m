@@ -28,7 +28,7 @@
     if (hexColor == nil) {
         return nil;
     }
-    int strLen = [hexColor length];
+    int strLen = (int)[hexColor length];
     if ( strLen < 6 || strLen > 7) {
         return nil;
     }

@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface PayListViewController : BaseViewController
-
+@property(nonatomic, strong)NSNumber *activitySid;
+-(instancetype)initWithActivitySid:(NSNumber *)sid;
 @end

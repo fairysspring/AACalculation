@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PayModel;
+@interface PayTableViewCell : MGSwipeTableCell
+@property(nonatomic, strong)PayModel *model;
 
-@interface PayTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *payNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *payPerson;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *referPersonsButton;
 
 @end

@@ -19,8 +19,12 @@
 #import "AANavigationController.h"
 //view
 #import "UIView+RSAdditions.h"
+#import "UIAlertView+Block.h"
 //TOOL
 #import "AAColorManager.h"
 #import "Masonry.h"
+#import "FMDB.h"
+#import "FMDBManager.h"
+#import "MGSwipeTableCell.h"
 
 #endif /* PrefixHeader_pch */

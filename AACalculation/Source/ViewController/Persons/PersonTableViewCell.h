@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PersonTableViewCell : UITableViewCell
+@class PersonsModel;
+@interface PersonTableViewCell : MGSwipeTableCell
 
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (nonatomic, strong)PersonsModel *model;
 @end

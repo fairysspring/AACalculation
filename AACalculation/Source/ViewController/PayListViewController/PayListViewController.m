@@ -9,13 +9,24 @@
 #import "PayListViewController.h"
 #import "AABigListView.h"
 #import "PayTableViewCell.h"
+#import "PayDao.h"
+#import "PayModel.h"
 
-@interface PayListViewController ()
+@interface PayListViewController ()<UITableViewDataSource, UITableViewDelegate, AABigListViewDelegate, MGSwipeTableCellDelegate>
 @property(nonatomic, strong)AABigListView *listView;
+@property(nonatomic, strong)NSArray *listDataArray;
+@property(nonatomic, strong)PayDao *payDao;
 @end
 
 @implementation PayListViewController
+-(instancetype)initWithActivitySid:(NSNumber *)sid{
+    self = [super init];
+    if (self) {
+        self.activitySid = sid;
+    }
+    return self;
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -43,34 +54,53 @@
     
     [_listView.tableView registerNib:[UINib nibWithNibName:@"PayTableViewCell" bundle:nil]
               forCellReuseIdentifier:@"cell"];
+    [_listView loadData];
     
+    self.payDao = [[PayDao alloc] initWithActivitySid:self.activitySid];
 }
 
 -(void)addActivity:(UIButton *)button{
     NSLog(@"add");
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.listDataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
+    cell.delegate = self;
+    cell.model = self.listDataArray[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 150;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    
 }
+-(void)requestData{
+    self.listDataArray = [self.payDao payList];
+    [self.listView.tableView reloadData];
+}
 - (BOOL)hasMore:(AABigListView *)bigListView{
-    return YES;
+    return NO;
 }
 - (void)fetchMore:(AABigListView *)bigListView page:(NSInteger)page complete:(AABigListViewBlock)block{
+    [self requestData];
     block(page);
 }
 - (void)refresh:(AABigListView *)bigListView{
+    self.listDataArray = nil;
+}
+
+-(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion{
+    NSIndexPath *indexPath = [self.listView.tableView indexPathForCell:cell];
+    if (indexPath.row < self.listDataArray.count && indexPath.row >= 0) {
+        PayModel *model = self.listDataArray[indexPath.row];
+        [self.payDao deletePay:model];
+        [self.listView reloadData];
+    }
     
+    return YES;
 }
 @end

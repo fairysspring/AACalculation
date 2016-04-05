@@ -15,14 +15,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="活动1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDh-CA-oeD">
-                        <rect key="frame" x="20" y="11" width="42" height="21"/>
+                        <rect key="frame" x="20" y="11" width="271" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="296" y="76"/>
+            <connections>
+                <outlet property="nameLabel" destination="HDh-CA-oeD" id="kMD-NU-Twe"/>
+            </connections>
+            <point key="canvasLocation" x="391" y="72"/>
         </tableViewCell>
     </objects>
 </document>

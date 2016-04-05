@@ -10,10 +10,13 @@
 #import "AABigListView.h"
 #import "ActivityTableViewCell.h"
 #import "ActivityDetailViewController.h"
+#import "HomeDao.h"
+#import "ActivityModel.h"
 
-@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource, AABigListViewDelegate>
+@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource, AABigListViewDelegate, MGSwipeTableCellDelegate>
 @property(nonatomic, strong)AABigListView *listView;
 @property(nonatomic, strong)UIButton *addButton;
+@property(nonatomic, strong)NSArray *listDataArray;
 
 @end
 
@@ -44,27 +47,30 @@
     
     [_listView.tableView registerNib:[UINib nibWithNibName:@"ActivityTableViewCell" bundle:nil]
               forCellReuseIdentifier:@"cell"];
-    
+    [_listView loadData];
     [self setupAdd];
 }
 
 -(void)setupAdd{
-//    self.addButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-//    self.addButton.frame = CGRectMake(0, 0, 44, 44);
-//    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addActivity:)];
 }
+
+
 -(void)addActivity:(UIButton *)button{
-    NSLog(@"add");
+    [self showAddAlertView];
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.listDataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     ActivityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
+    cell.model = self.listDataArray[indexPath.row];
+    cell.delegate = self;
     return cell;
 }
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 100;
 }
@@ -73,14 +79,54 @@
     ActivityDetailViewController *vc = [[ActivityDetailViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+-(void)requestData{
+    self.listDataArray = [HomeDao homelist];
+    [self.listView.tableView reloadData];
+}
 - (BOOL)hasMore:(AABigListView *)bigListView{
-    return YES;
+    return NO;
 }
 - (void)fetchMore:(AABigListView *)bigListView page:(NSInteger)page complete:(AABigListViewBlock)block{
+    [self requestData];
     block(page);
 }
 - (void)refresh:(AABigListView *)bigListView{
-    
+    self.listDataArray = nil;
 }
 
+
+-(void)showAddAlertView{
+    UIAlertView *alert = [[UIAlertView alloc] initWithMessage:@"添加活动" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"]];
+    
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    WS();
+    [alert showUsingBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        if (buttonIndex == 1) {
+            NSString *activityName = nil;
+            UITextField *tf=[alertView textFieldAtIndex:0];
+            if (tf) {
+                activityName = tf.text;
+                if (activityName != nil && activityName.length > 0) {
+                    ActivityModel *model = [[ActivityModel alloc] init];
+                    model.name = activityName;
+                    [HomeDao insertActivity:model];
+                    [weakself.listView reloadData];
+                }
+            }
+        }
+    }];
+}
+
+#pragma mark MGSwipeTableCellDelegate
+-(BOOL) swipeTableCell:(ActivityTableViewCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion{
+    NSIndexPath *indexPath = [self.listView.tableView indexPathForCell:cell];
+    if (indexPath.row < self.listDataArray.count && indexPath.row >= 0) {
+        ActivityModel *model = self.listDataArray[indexPath.row];
+        [HomeDao deleteActivity:model];
+        [self.listView reloadData];
+    }
+    
+    return YES;
+}
 @end

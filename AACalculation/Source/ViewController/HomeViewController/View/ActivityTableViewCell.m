@@ -7,17 +7,23 @@
 //
 
 #import "ActivityTableViewCell.h"
+#import "ActivityModel.h"
 
 @implementation ActivityTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    MGSwipeButton *deleteButton = [MGSwipeButton buttonWithTitle:@"删除" backgroundColor:[UIColor redColor]];
+    deleteButton.width = 80;
+    self.rightButtons = @[deleteButton];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setModel:(ActivityModel *)model{
+    _model = model;
+    self.nameLabel.text = _model.name;
 }
+
+
+
 
 @end

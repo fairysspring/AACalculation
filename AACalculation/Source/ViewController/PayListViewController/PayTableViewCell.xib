@@ -35,6 +35,9 @@
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1J1-3j-Kg9">
                         <rect key="frame" x="213" y="61" width="75" height="30"/>
                         <state key="normal" title="参与人名单"/>
+                        <connections>
+                            <action selector="tapReferPersons:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="OJQ-hW-Kuj"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="小魔仙付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Og-hI-Feu">
                         <rect key="frame" x="8" y="40" width="85" height="21"/>
@@ -44,7 +47,14 @@
                     </label>
                 </subviews>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="353" y="382"/>
+            <connections>
+                <outlet property="contentLabel" destination="gFK-R6-Vxm" id="xW8-vJ-gA8"/>
+                <outlet property="payNumberLabel" destination="ZRW-cX-4DM" id="yKo-wH-MdX"/>
+                <outlet property="payPerson" destination="2Og-hI-Feu" id="grW-P7-ffv"/>
+                <outlet property="referPersonsButton" destination="1J1-3j-Kg9" id="pwH-Vx-RW1"/>
+                <outlet property="timeLabel" destination="gjn-KM-C33" id="XRu-kz-WKu"/>
+            </connections>
+            <point key="canvasLocation" x="145" y="127"/>
         </tableViewCell>
     </objects>
 </document>

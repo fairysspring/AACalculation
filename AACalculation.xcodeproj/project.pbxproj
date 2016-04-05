@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		2C05FA7A1CB383CD006ED206 /* PersonPayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA781CB383CD006ED206 /* PersonPayTableViewCell.m */; };
 		2C05FA7B1CB383CD006ED206 /* PersonPayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C05FA791CB383CD006ED206 /* PersonPayTableViewCell.xib */; };
+		2C05FA7F1CB3983D006ED206 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA7E1CB3983D006ED206 /* BaseDao.m */; };
+		2C05FA821CB3986B006ED206 /* FMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA811CB3986B006ED206 /* FMDBManager.m */; };
+		2C05FA881CB39E4F006ED206 /* HomeDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA871CB39E4F006ED206 /* HomeDao.m */; };
+		2C05FA8B1CB3A197006ED206 /* ActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA8A1CB3A197006ED206 /* ActivityModel.m */; };
+		2C05FA8E1CB3A963006ED206 /* PersonsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA8D1CB3A963006ED206 /* PersonsModel.m */; };
+		2C05FA911CB3AB47006ED206 /* PayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA901CB3AB47006ED206 /* PayModel.m */; };
+		2C05FA951CB3DAB5006ED206 /* PersonsDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA941CB3DAB5006ED206 /* PersonsDao.m */; };
+		2C05FA991CB3E052006ED206 /* PayDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA981CB3E052006ED206 /* PayDao.m */; };
 		2C43E9CB1CAE6E6000032FD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43E9CA1CAE6E6000032FD0 /* main.m */; };
 		2C43E9CE1CAE6E6000032FD0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43E9CD1CAE6E6000032FD0 /* AppDelegate.m */; };
 		2C43E9D61CAE6E6000032FD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C43E9D51CAE6E6000032FD0 /* Assets.xcassets */; };
@@ -38,6 +46,23 @@
 		2C05FA771CB383CD006ED206 /* PersonPayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonPayTableViewCell.h; sourceTree = "<group>"; };
 		2C05FA781CB383CD006ED206 /* PersonPayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonPayTableViewCell.m; sourceTree = "<group>"; };
 		2C05FA791CB383CD006ED206 /* PersonPayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonPayTableViewCell.xib; sourceTree = "<group>"; };
+		2C05FA7D1CB3983D006ED206 /* BaseDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDao.h; sourceTree = "<group>"; };
+		2C05FA7E1CB3983D006ED206 /* BaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDao.m; sourceTree = "<group>"; };
+		2C05FA801CB3986B006ED206 /* FMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBManager.h; sourceTree = "<group>"; };
+		2C05FA811CB3986B006ED206 /* FMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBManager.m; sourceTree = "<group>"; };
+		2C05FA831CB39C25006ED206 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		2C05FA861CB39E4F006ED206 /* HomeDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDao.h; sourceTree = "<group>"; };
+		2C05FA871CB39E4F006ED206 /* HomeDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDao.m; sourceTree = "<group>"; };
+		2C05FA891CB3A197006ED206 /* ActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityModel.h; sourceTree = "<group>"; };
+		2C05FA8A1CB3A197006ED206 /* ActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityModel.m; sourceTree = "<group>"; };
+		2C05FA8C1CB3A963006ED206 /* PersonsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonsModel.h; sourceTree = "<group>"; };
+		2C05FA8D1CB3A963006ED206 /* PersonsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonsModel.m; sourceTree = "<group>"; };
+		2C05FA8F1CB3AB47006ED206 /* PayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayModel.h; sourceTree = "<group>"; };
+		2C05FA901CB3AB47006ED206 /* PayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayModel.m; sourceTree = "<group>"; };
+		2C05FA931CB3DAB5006ED206 /* PersonsDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonsDao.h; sourceTree = "<group>"; };
+		2C05FA941CB3DAB5006ED206 /* PersonsDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonsDao.m; sourceTree = "<group>"; };
+		2C05FA971CB3E052006ED206 /* PayDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayDao.h; sourceTree = "<group>"; };
+		2C05FA981CB3E052006ED206 /* PayDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayDao.m; sourceTree = "<group>"; };
 		2C43E9C61CAE6E6000032FD0 /* AACalculation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AACalculation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C43E9CA1CAE6E6000032FD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2C43E9CC1CAE6E6000032FD0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,6 +124,7 @@
 		2835D2E66B30784EF6F69832 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2C05FA831CB39C25006ED206 /* libsqlite3.0.tbd */,
 				D25A8D9BFC3F3D17FABD2A8E /* libPods-AACalculation.a */,
 			);
 			name = Frameworks;
@@ -112,6 +138,50 @@
 				2C05FA791CB383CD006ED206 /* PersonPayTableViewCell.xib */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		2C05FA7C1CB3981D006ED206 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				2C05FA7D1CB3983D006ED206 /* BaseDao.h */,
+				2C05FA7E1CB3983D006ED206 /* BaseDao.m */,
+				2C05FA801CB3986B006ED206 /* FMDBManager.h */,
+				2C05FA811CB3986B006ED206 /* FMDBManager.m */,
+				2C05FA891CB3A197006ED206 /* ActivityModel.h */,
+				2C05FA8C1CB3A963006ED206 /* PersonsModel.h */,
+				2C05FA8F1CB3AB47006ED206 /* PayModel.h */,
+				2C05FA901CB3AB47006ED206 /* PayModel.m */,
+				2C05FA8D1CB3A963006ED206 /* PersonsModel.m */,
+				2C05FA8A1CB3A197006ED206 /* ActivityModel.m */,
+			);
+			path = Dao;
+			sourceTree = "<group>";
+		};
+		2C05FA851CB39E40006ED206 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				2C05FA861CB39E4F006ED206 /* HomeDao.h */,
+				2C05FA871CB39E4F006ED206 /* HomeDao.m */,
+			);
+			name = Dao;
+			sourceTree = "<group>";
+		};
+		2C05FA921CB3DAA7006ED206 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				2C05FA931CB3DAB5006ED206 /* PersonsDao.h */,
+				2C05FA941CB3DAB5006ED206 /* PersonsDao.m */,
+			);
+			name = Dao;
+			sourceTree = "<group>";
+		};
+		2C05FA961CB3E046006ED206 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				2C05FA971CB3E052006ED206 /* PayDao.h */,
+				2C05FA981CB3E052006ED206 /* PayDao.m */,
+			);
+			name = Dao;
 			sourceTree = "<group>";
 		};
 		2C43E9BD1CAE6E6000032FD0 = {
@@ -158,6 +228,7 @@
 		2C43E9E01CAE727500032FD0 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2C05FA7C1CB3981D006ED206 /* Dao */,
 				2C43E9E11CAE727500032FD0 /* Category */,
 				2C43E9E21CAE727500032FD0 /* Macro */,
 				2C43E9E31CAE727500032FD0 /* View */,
@@ -245,6 +316,7 @@
 		2C43E9E91CAE727500032FD0 /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2C05FA851CB39E40006ED206 /* Dao */,
 				2C43E9EB1CAE72A600032FD0 /* View */,
 				2C43E9EC1CAE736A00032FD0 /* HomeViewController.h */,
 				2C43E9ED1CAE736A00032FD0 /* HomeViewController.m */,
@@ -285,6 +357,7 @@
 		2C43EA161CB357CE00032FD0 /* PayListViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2C05FA961CB3E046006ED206 /* Dao */,
 				2CC0AB051CB3814900B584BE /* View */,
 				2C43EA191CB357EB00032FD0 /* PayListViewController.h */,
 				2C43EA1A1CB357EB00032FD0 /* PayListViewController.m */,
@@ -305,6 +378,7 @@
 		2C43EA181CB357CE00032FD0 /* Persons */ = {
 			isa = PBXGroup;
 			children = (
+				2C05FA921CB3DAA7006ED206 /* Dao */,
 				2CC0AAFF1CB36F6400B584BE /* View */,
 				2C43EA1F1CB3580D00032FD0 /* PersonsViewController.h */,
 				2C43EA201CB3580D00032FD0 /* PersonsViewController.m */,
@@ -450,20 +524,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C05FA8E1CB3A963006ED206 /* PersonsModel.m in Sources */,
+				2C05FA991CB3E052006ED206 /* PayDao.m in Sources */,
 				2C43EA011CB2B0C700032FD0 /* AAColorManager.m in Sources */,
+				2C05FA881CB39E4F006ED206 /* HomeDao.m in Sources */,
 				2C43EA0F1CB2B99C00032FD0 /* AAScrollView.m in Sources */,
 				2C43E9CE1CAE6E6000032FD0 /* AppDelegate.m in Sources */,
 				2C43EA1B1CB357EB00032FD0 /* PayListViewController.m in Sources */,
 				2C43EA051CB2B1DF00032FD0 /* ActivityTableViewCell.m in Sources */,
+				2C05FA821CB3986B006ED206 /* FMDBManager.m in Sources */,
 				2C43EA0B1CB2B8B600032FD0 /* ActivityDetailViewController.m in Sources */,
 				2C43E9F51CAE79FE00032FD0 /* BaseViewController.m in Sources */,
+				2C05FA7F1CB3983D006ED206 /* BaseDao.m in Sources */,
 				2C43EA211CB3580D00032FD0 /* PersonsViewController.m in Sources */,
 				2C43E9FB1CAE7B2900032FD0 /* AANavigationController.m in Sources */,
+				2C05FA951CB3DAB5006ED206 /* PersonsDao.m in Sources */,
 				2C43EA1E1CB357FF00032FD0 /* PersonPayViewController.m in Sources */,
 				2CC0AB091CB3815800B584BE /* PayTableViewCell.m in Sources */,
+				2C05FA911CB3AB47006ED206 /* PayModel.m in Sources */,
 				2C43E9CB1CAE6E6000032FD0 /* main.m in Sources */,
 				2C43E9EF1CAE736A00032FD0 /* HomeViewController.m in Sources */,
 				2C05FA7A1CB383CD006ED206 /* PersonPayTableViewCell.m in Sources */,
+				2C05FA8B1CB3A197006ED206 /* ActivityModel.m in Sources */,
 				2C43EA131CB2BC9E00032FD0 /* ActivityDetailItemView.m in Sources */,
 				2C43E9FE1CAE7CAA00032FD0 /* AABigListView.m in Sources */,
 				2CC0AB031CB36F8600B584BE /* PersonTableViewCell.m in Sources */,
@@ -522,7 +604,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -560,7 +642,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

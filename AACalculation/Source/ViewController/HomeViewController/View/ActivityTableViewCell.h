@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ActivityTableViewCell : UITableViewCell
-
+@class ActivityModel;
+@interface ActivityTableViewCell : MGSwipeTableCell
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (nonatomic, strong)ActivityModel *model;
 @end

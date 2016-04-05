@@ -10,7 +10,7 @@
 #import "AABigListView.h"
 #import "PersonPayTableViewCell.h"
 
-@interface PersonPayViewController ()
+@interface PersonPayViewController ()<UITableViewDataSource, UITableViewDelegate, AABigListViewDelegate>
 @property(nonatomic, strong)AABigListView *listView;
 @end
 
