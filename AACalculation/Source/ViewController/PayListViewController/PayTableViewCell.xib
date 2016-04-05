@@ -54,7 +54,7 @@
                 <outlet property="referPersonsButton" destination="1J1-3j-Kg9" id="pwH-Vx-RW1"/>
                 <outlet property="timeLabel" destination="gjn-KM-C33" id="XRu-kz-WKu"/>
             </connections>
-            <point key="canvasLocation" x="145" y="127"/>
+            <point key="canvasLocation" x="58" y="142"/>
         </tableViewCell>
     </objects>
 </document>

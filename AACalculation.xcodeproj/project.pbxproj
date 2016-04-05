@@ -17,6 +17,8 @@
 		2C05FA911CB3AB47006ED206 /* PayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA901CB3AB47006ED206 /* PayModel.m */; };
 		2C05FA951CB3DAB5006ED206 /* PersonsDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA941CB3DAB5006ED206 /* PersonsDao.m */; };
 		2C05FA991CB3E052006ED206 /* PayDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA981CB3E052006ED206 /* PayDao.m */; };
+		2C05FA9C1CB3E791006ED206 /* WritePayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05FA9B1CB3E791006ED206 /* WritePayView.m */; };
+		2C05FA9E1CB3E79C006ED206 /* WritePayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C05FA9D1CB3E79C006ED206 /* WritePayView.xib */; };
 		2C43E9CB1CAE6E6000032FD0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43E9CA1CAE6E6000032FD0 /* main.m */; };
 		2C43E9CE1CAE6E6000032FD0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C43E9CD1CAE6E6000032FD0 /* AppDelegate.m */; };
 		2C43E9D61CAE6E6000032FD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C43E9D51CAE6E6000032FD0 /* Assets.xcassets */; };
@@ -63,6 +65,9 @@
 		2C05FA941CB3DAB5006ED206 /* PersonsDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonsDao.m; sourceTree = "<group>"; };
 		2C05FA971CB3E052006ED206 /* PayDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayDao.h; sourceTree = "<group>"; };
 		2C05FA981CB3E052006ED206 /* PayDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayDao.m; sourceTree = "<group>"; };
+		2C05FA9A1CB3E791006ED206 /* WritePayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WritePayView.h; sourceTree = "<group>"; };
+		2C05FA9B1CB3E791006ED206 /* WritePayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WritePayView.m; sourceTree = "<group>"; };
+		2C05FA9D1CB3E79C006ED206 /* WritePayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WritePayView.xib; sourceTree = "<group>"; };
 		2C43E9C61CAE6E6000032FD0 /* AACalculation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AACalculation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C43E9CA1CAE6E6000032FD0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2C43E9CC1CAE6E6000032FD0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -402,6 +407,9 @@
 				2CC0AB061CB3815800B584BE /* PayTableViewCell.h */,
 				2CC0AB071CB3815800B584BE /* PayTableViewCell.m */,
 				2CC0AB081CB3815800B584BE /* PayTableViewCell.xib */,
+				2C05FA9A1CB3E791006ED206 /* WritePayView.h */,
+				2C05FA9B1CB3E791006ED206 /* WritePayView.m */,
+				2C05FA9D1CB3E79C006ED206 /* WritePayView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -475,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CC0AB0A1CB3815800B584BE /* PayTableViewCell.xib in Resources */,
+				2C05FA9E1CB3E79C006ED206 /* WritePayView.xib in Resources */,
 				2C05FA7B1CB383CD006ED206 /* PersonPayTableViewCell.xib in Resources */,
 				2C43E9D91CAE6E6000032FD0 /* LaunchScreen.storyboard in Resources */,
 				2C43EA151CB2BCAA00032FD0 /* ActivityDetailItemView.xib in Resources */,
@@ -545,6 +554,7 @@
 				2C43E9CB1CAE6E6000032FD0 /* main.m in Sources */,
 				2C43E9EF1CAE736A00032FD0 /* HomeViewController.m in Sources */,
 				2C05FA7A1CB383CD006ED206 /* PersonPayTableViewCell.m in Sources */,
+				2C05FA9C1CB3E791006ED206 /* WritePayView.m in Sources */,
 				2C05FA8B1CB3A197006ED206 /* ActivityModel.m in Sources */,
 				2C43EA131CB2BC9E00032FD0 /* ActivityDetailItemView.m in Sources */,
 				2C43E9FE1CAE7CAA00032FD0 /* AABigListView.m in Sources */,
