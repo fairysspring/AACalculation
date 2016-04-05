@@ -9,13 +9,15 @@
 #import "ActivityDetailViewController.h"
 #import "AAScrollView.h"
 #import "ActivityDetailItemView.h"
+#import "PayListViewController.h"
+#import "PersonsViewController.h"
+#import "PersonPayViewController.h"
 
 @interface ActivityDetailViewController ()
 @property(nonatomic, strong)AAScrollView *contentScrollView;
 @property(nonatomic, strong)ActivityDetailItemView *wPersons;
 @property(nonatomic, strong)ActivityDetailItemView *wPay;
 @property(nonatomic, strong)ActivityDetailItemView *wPersonPay;
-
 @end
 
 @implementation ActivityDetailViewController
@@ -45,30 +47,32 @@
     self.wPersons = [ActivityDetailItemView activityDetailItemView];
     self.wPersons.titleLabel.text = @"参与人";
     self.wPersons.contentLabel.text = @"18个";
+    WS();
+    self.wPersons.tapBlock = ^(){
+        PersonsViewController *vc = [[PersonsViewController alloc] init];
+        [weakself.navigationController pushViewController:vc animated:YES];
+    };
 }
 -(void)setupPay{
     self.wPay = [ActivityDetailItemView activityDetailItemView];
     self.wPay.titleLabel.text = @"花销列表";
     self.wPay.contentLabel.text = @"¥2000";
+    WS();
+    self.wPay.tapBlock = ^(){
+        PayListViewController *vc = [[PayListViewController alloc] init];
+        [weakself.navigationController pushViewController:vc animated:YES];
+    };
 }
 -(void)setupPerPersonPay{
     self.wPersonPay = [ActivityDetailItemView activityDetailItemView];
     self.wPersonPay.titleLabel.text = @"个人花销明细";
     self.wPersonPay.contentLabel.text = @"";
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    WS();
+    self.wPersonPay.tapBlock = ^(){
+        PersonPayViewController *vc = [[PersonPayViewController alloc] init];
+        [weakself.navigationController pushViewController:vc animated:YES];
+    };
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

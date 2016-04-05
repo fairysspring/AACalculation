@@ -12,5 +12,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property(nonatomic, copy)void(^tapBlock)();
 +(ActivityDetailItemView *)activityDetailItemView;
 @end

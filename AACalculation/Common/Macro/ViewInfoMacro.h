@@ -14,4 +14,8 @@
 #define AAScreenWidth       (CGRectGetWidth(AAScreenBounds))
 #define AAScreenHeight      (CGRectGetHeight(AAScreenBounds))
 
+
+
+#define WS() __typeof__(self) __weak weakself = self
+
 #endif /* ViewInfoMacro_h */

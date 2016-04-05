@@ -10,5 +10,6 @@
 
 @interface AAColorManager : NSObject
 +(UIColor *)colorForSeperator;
++(UIColor *)colorForBackground;
 +(UIColor *)colorForTest;
 @end

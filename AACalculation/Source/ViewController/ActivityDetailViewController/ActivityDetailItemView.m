@@ -14,8 +14,17 @@
     view.backgroundColor = [UIColor purpleColor];
     view.width = AAScreenWidth;
     view.height = 50;
+    
+    
+    UIControl *control = [[UIControl alloc] initWithFrame:view.bounds];
+    [control addTarget:view action:@selector(tapControl) forControlEvents:(UIControlEventTouchUpInside)];
+    [view addSubview:control];
     return view;
 
+}
+
+-(void)tapControl{
+    self.tapBlock();
 }
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -13,6 +13,10 @@
     return [[self class] getColorByHex:@"e3e3e3"];
 }
 
++(UIColor *)colorForBackground{
+    return [[self class] getColorByHex:@"e3e3e3"];
+}
+
 +(UIColor *)colorForTest{
     return [UIColor yellowColor];
 }
