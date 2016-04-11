@@ -10,13 +10,17 @@
 @class PayModel;
 @interface WritePayView : UIView
 
-+(WritePayView *)writePayView;
-
++(WritePayView *)writePayViewWithSid:(NSNumber *)sid;
+@property(nonatomic, strong)UIViewController *containerViewController;
 @property(nonatomic, copy)void (^finishBlock)(PayModel *payModel);
 @property(nonatomic, copy)void (^cancelBlock)();
 
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *moneyTextField;
+
+@property (weak, nonatomic) IBOutlet UIButton *payPersonButton;
+@property (weak, nonatomic) IBOutlet UIButton *referPersonsButton;
+
 
 @end

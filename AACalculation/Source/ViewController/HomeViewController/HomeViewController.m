@@ -76,7 +76,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    ActivityDetailViewController *vc = [[ActivityDetailViewController alloc] init];
+    ActivityModel *model = self.listDataArray[indexPath.row];
+    ActivityDetailViewController *vc = [[ActivityDetailViewController alloc] initWithActivitySid:model.sid];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

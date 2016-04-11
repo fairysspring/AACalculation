@@ -20,6 +20,11 @@
 -(void)setModel:(PersonsModel *)model{
     _model = model;
     self.nameLabel.text = _model.name;
+    if (_model.isSelected) {
+        self.nameLabel.textColor = [UIColor redColor];
+    }else{
+        self.nameLabel.textColor = [UIColor blackColor];
+    }
 }
 
 @end

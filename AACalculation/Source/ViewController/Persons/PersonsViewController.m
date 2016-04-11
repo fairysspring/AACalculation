@@ -16,6 +16,9 @@
 @property(nonatomic, strong)AABigListView *listView;
 @property(nonatomic, strong)NSArray *listDataArray;
 @property(nonatomic, strong)PersonsDao *personDao;
+@property(nonatomic, strong)NSMutableArray *currentSelectedSidArray;
+@property(nonatomic, strong)PersonsModel *currentSelectedPayPerson;
+
 @end
 
 @implementation PersonsViewController
@@ -24,6 +27,7 @@
     self = [super init];
     if (self) {
         self.activitySid = sid;
+        self.showStyle = PersonsViewShowStyleNormal;
     }
     return self;
 }
@@ -61,11 +65,29 @@
     //    self.addButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
     //    self.addButton.frame = CGRectMake(0, 0, 44, 44);
     //
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addActivity:)];
+    if (self.showStyle == PersonsViewShowStyleNormal) {
+         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addActivity:)];
+    }else if (self.showStyle == PersonsViewShowStyleSelectedReferPersons){
+         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:self action:@selector(finishReferSelected:)];
+    }else if (self.showStyle == PersonsViewShowStyleSelectedPayPerson){
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:self action:@selector(finishPaySelected:)];
+    }
+   
 }
 -(void)addActivity:(UIButton *)button{
     NSLog(@"add");
     [self showAddAlertView];
+}
+-(void)finishReferSelected:(UIButton *)button{
+    NSLog(@"finish");
+    if (self.selectedReferPersonsFinish) {
+        self.selectedReferPersonsFinish([self.currentSelectedSidArray copy]);
+    }
+}
+-(void)finishPaySelected:(UIButton *)button{
+    if (self.selectedPayPersonsFinish) {
+        self.selectedPayPersonsFinish(self.currentSelectedPayPerson.sid, self.currentSelectedPayPerson.name);
+    }
 }
 -(void)showAddAlertView{
     UIAlertView *alert = [[UIAlertView alloc] initWithMessage:@"添加活动" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"]];
@@ -94,16 +116,87 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     PersonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.delegate = self;
-    cell.model = self.listDataArray[indexPath.row];
+    PersonsModel *person = self.listDataArray[indexPath.row];
+    if ([self isSelectedPerson:self.listDataArray[indexPath.row]]) {
+        person.isSelected = YES;
+    }else{
+        person.isSelected = NO;
+    }
+    cell.model = person;
 
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
 }
+-(void)setSelectedSidArray:(NSArray *)selectedSidArray{
+    _selectedSidArray = selectedSidArray;
+    _currentSelectedSidArray = [_selectedSidArray mutableCopy];
+}
+-(NSArray *)currentSelectedSidArray{
+    if (!_currentSelectedSidArray) {
+        _currentSelectedSidArray = [[NSMutableArray alloc] initWithCapacity:10];
+    }
+    return _currentSelectedSidArray;
+}
+-(void)setPayPersonSid:(NSNumber *)payPersonSid{
+    _payPersonSid = payPersonSid;
+    self.currentSelectedPayPerson.sid = payPersonSid;
+}
+-(void)setPayPersonName:(NSString *)payPersonName{
+    _payPersonName = payPersonName;
+    self.currentSelectedPayPerson.name = _payPersonName;
+}
 
+-(PersonsModel *)currentSelectedPayPerson{
+    if (!_currentSelectedPayPerson) {
+        _currentSelectedPayPerson = [[PersonsModel alloc] init];
+    }
+    return _currentSelectedPayPerson;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (self.showStyle == PersonsViewShowStyleSelectedReferPersons) {
+        PersonsModel *person = self.listDataArray[indexPath.row];
+        person.isSelected = !person.isSelected;
+        if (person.isSelected) {
+            [self.currentSelectedSidArray addObject:person.sid];
+        }else{
+            for (NSNumber *theSid in self.currentSelectedSidArray) {
+                if (theSid.integerValue == person.sid.integerValue) {
+                    [self.currentSelectedSidArray removeObject:theSid];
+                    break;
+                }
+            }
+        }
+        [self.listView.tableView reloadData];
+    }else if (self.showStyle == PersonsViewShowStyleSelectedPayPerson){
+        PersonsModel *person = self.listDataArray[indexPath.row];
+        person.isSelected = !person.isSelected;
+        if (person.isSelected) {
+            self.currentSelectedPayPerson.sid = person.sid;
+            self.currentSelectedPayPerson.name = person.name;
+        }else{
+            self.currentSelectedPayPerson = nil;
+        }
+        [self.listView.tableView reloadData];
+    }
     
+}
+
+-(BOOL)isSelectedPerson:(PersonsModel *)person{
+    if (self.showStyle == PersonsViewShowStyleSelectedReferPersons) {
+        for (NSNumber *selectedSid in self.currentSelectedSidArray) {
+            if(selectedSid.integerValue == person.sid.integerValue){
+                return YES;
+            }
+        }
+    }else if (self.showStyle == PersonsViewShowStyleSelectedPayPerson){
+        if (person.sid.integerValue == self.currentSelectedPayPerson.sid.integerValue) {
+            return YES;
+        }
+    }
+    
+    return NO;
 }
 
 -(void)requestData{
@@ -125,6 +218,7 @@
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion{
     NSIndexPath *indexPath = [self.listView.tableView indexPathForCell:cell];
     if (indexPath.row < self.listDataArray.count && indexPath.row >= 0) {
+        //TODO
         PersonsModel *model = self.listDataArray[indexPath.row];
         [self.personDao deletePerson:model];
         [self.listView reloadData];

@@ -11,6 +11,7 @@
 #import "PayTableViewCell.h"
 #import "PayDao.h"
 #import "PayModel.h"
+#import "WritePayView.h"
 
 @interface PayListViewController ()<UITableViewDataSource, UITableViewDelegate, AABigListViewDelegate, MGSwipeTableCellDelegate>
 @property(nonatomic, strong)AABigListView *listView;
@@ -23,6 +24,7 @@
     self = [super init];
     if (self) {
         self.activitySid = sid;
+        self.payDao = [[PayDao alloc] initWithActivitySid:self.activitySid];
     }
     return self;
 
@@ -56,11 +58,20 @@
               forCellReuseIdentifier:@"cell"];
     [_listView loadData];
     
-    self.payDao = [[PayDao alloc] initWithActivitySid:self.activitySid];
+    
 }
 
 -(void)addActivity:(UIButton *)button{
     NSLog(@"add");
+    WritePayView *payView = [WritePayView writePayViewWithSid:self.activitySid];
+    payView.containerViewController = self;
+    WS();
+    payView.finishBlock = ^(PayModel *model){
+        [weakself.payDao addPay:model];
+        [weakself.listView reloadData];
+    };
+
+    [self.view addSubview:payView];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.listDataArray.count;

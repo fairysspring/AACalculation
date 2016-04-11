@@ -34,11 +34,23 @@
 
 }
 -(BOOL)addPay:(PayModel *)model{
-    if (model.name == nil || model.name.length == 0) {
+    if (model.name == nil || model.name.length == 0 || model.referPersonsSid==nil || model.money == nil || model.payPersonSid == nil || model.payPersonName==nil) {
         return NO;
     }
-    
-    NSString *insert = [NSString stringWithFormat:@"INSERT INTO %@ (name, money, payPersonSid, payPersonName, time, referPersonsSid) VALUES ('%@', '%@', %@,  '%@', %@, '%@');", [PayModel tPayWithMark:self.belongToActivitySid.stringValue],model.name, model.money, model.payPersonSid, model.payPersonName, model.time, model.referPersonsSid];
+    /*
+     +(NSString *)queryStringForCreateWithMark:(NSString *)mark{
+     NSString *pay = [[self class] tPayWithMark:mark];
+     NSString *t_pay_create =[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (sid integer PRIMARY KEY AUTOINCREMENT, name text NOT NULL, money integer NOT NULL,payPersonSid integer NOT NULL, payPersonName text NOT NULL, time integer NOT NULL, referPersonsSid text NOT NULL)", pay];
+     */
+    model.time = @([[NSDate date] timeIntervalSince1970]);
+    NSString *insert = [NSString stringWithFormat:@"INSERT INTO %@ (name, money, payPersonSid, payPersonName, time, referPersonsSid) VALUES ('%@', %@, %@, '%@', %@, '%@');",
+                        [PayModel tPayWithMark:self.belongToActivitySid.stringValue],
+                        model.name,
+                        model.money,
+                        model.payPersonSid,
+                        model.payPersonName,
+                        model.time,
+                        model.referPersonsSid];
     BOOL result  = [[FMDBManager sharedInstance] executeUpdate:insert];
     if (!result) {
         return NO;

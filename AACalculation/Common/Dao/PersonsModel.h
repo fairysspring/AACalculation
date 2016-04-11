@@ -12,6 +12,7 @@
 @interface PersonsModel : NSObject
 @property(nonatomic, strong)NSNumber *sid;
 @property(nonatomic, strong)NSString *name;
+@property(nonatomic, assign)BOOL isSelected;
 
 -(void)fillFMResultSet:(FMResultSet *)resultSet;
 

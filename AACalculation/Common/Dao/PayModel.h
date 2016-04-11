@@ -21,4 +21,5 @@
 
 +(NSString *)queryStringForCreateWithMark:(NSString *)mark;
 +(NSString *)tPayWithMark:(NSString *)mark;
+-(NSArray *)referPersonsSidArray;
 @end

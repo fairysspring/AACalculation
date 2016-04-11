@@ -22,6 +22,13 @@
 
 @implementation ActivityDetailViewController
 
+-(instancetype)initWithActivitySid:(NSNumber *)sid{
+    self = [super init];
+    if (self) {
+        self.activitySid = sid;
+    }
+    return self;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -49,7 +56,7 @@
     self.wPersons.contentLabel.text = @"18个";
     WS();
     self.wPersons.tapBlock = ^(){
-        PersonsViewController *vc = [[PersonsViewController alloc] initWithActivitySid:@(22)];
+        PersonsViewController *vc = [[PersonsViewController alloc] initWithActivitySid:weakself.activitySid];
         [weakself.navigationController pushViewController:vc animated:YES];
     };
 }
@@ -59,7 +66,7 @@
     self.wPay.contentLabel.text = @"¥2000";
     WS();
     self.wPay.tapBlock = ^(){
-        PayListViewController *vc = [[PayListViewController alloc] initWithActivitySid:@(22)];
+        PayListViewController *vc = [[PayListViewController alloc] initWithActivitySid:weakself.activitySid];
         [weakself.navigationController pushViewController:vc animated:YES];
     };
 }

@@ -11,7 +11,7 @@
 @implementation PayModel
 +(NSString *)queryStringForCreateWithMark:(NSString *)mark{
     NSString *pay = [[self class] tPayWithMark:mark];
-    NSString *t_pay_create =[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (sid integer PRIMARY KEY AUTOINCREMENT, name text NOT NULL, money integer NOT NULL,payPersonSid integer NOT NULL, payPersonName text NOT NULL, time text NOT NULL, referPersonsSid text NOT NULL)", pay];
+    NSString *t_pay_create =[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (sid integer PRIMARY KEY AUTOINCREMENT, name text NOT NULL, money integer NOT NULL,payPersonSid integer NOT NULL, payPersonName text NOT NULL, time integer NOT NULL, referPersonsSid text NOT NULL)", pay];
     return t_pay_create;
 }
 +(NSString *)tPayWithMark:(NSString *)mark{
@@ -21,7 +21,14 @@
 -(void)fillFMResultSet:(FMResultSet *)resultSet{
     self.sid = [resultSet objectForColumnName:@"sid"];
     self.name = [resultSet objectForColumnName:@"name"];
+    self.money = [resultSet objectForColumnName:@"money"];
     self.payPersonSid = [resultSet objectForColumnName:@"payPersonSid"];
     self.payPersonName = [resultSet objectForColumnName:@"payPersonName"];
+    self.time = [resultSet objectForColumnName:@"time"];
+    self.referPersonsSid = [resultSet objectForColumnName:@"referPersonsSid"];
+}
+
+-(NSArray *)referPersonsSidArray{
+   return [self.referPersonsSid componentsSeparatedByString:@","];
 }
 @end
