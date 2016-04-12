@@ -13,6 +13,15 @@
 -(instancetype)initWithActivitySid:(NSNumber *)sid;
 
 -(NSArray *)payList;
+-(NSArray *)payListForPerson:(NSNumber *)personSid;
+/**
+ *  付款项
+ *
+ *  @param personSid <#personSid description#>
+ *
+ *  @return <#return value description#>
+ */
+-(NSArray *)payByPerson:(NSNumber *)personSid;
 -(BOOL)addPay:(PayModel *)model;
 -(BOOL)deletePay:(PayModel *)model;
 

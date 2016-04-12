@@ -41,6 +41,7 @@
 		2CC0AB041CB36F8600B584BE /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CC0AB021CB36F8600B584BE /* PersonTableViewCell.xib */; };
 		2CC0AB091CB3815800B584BE /* PayTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CC0AB071CB3815800B584BE /* PayTableViewCell.m */; };
 		2CC0AB0A1CB3815800B584BE /* PayTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CC0AB081CB3815800B584BE /* PayTableViewCell.xib */; };
+		2CF98D151CBBAE18000F0305 /* PersonPayDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CF98D141CBBAE18000F0305 /* PersonPayDao.m */; };
 		3D164B2E650E97563B26C39E /* libPods-AACalculation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25A8D9BFC3F3D17FABD2A8E /* libPods-AACalculation.a */; };
 /* End PBXBuildFile section */
 
@@ -109,6 +110,8 @@
 		2CC0AB061CB3815800B584BE /* PayTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayTableViewCell.h; sourceTree = "<group>"; };
 		2CC0AB071CB3815800B584BE /* PayTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayTableViewCell.m; sourceTree = "<group>"; };
 		2CC0AB081CB3815800B584BE /* PayTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayTableViewCell.xib; sourceTree = "<group>"; };
+		2CF98D131CBBAE18000F0305 /* PersonPayDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonPayDao.h; sourceTree = "<group>"; };
+		2CF98D141CBBAE18000F0305 /* PersonPayDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonPayDao.m; sourceTree = "<group>"; };
 		9C687374C899E990ED8EC46A /* Pods-AACalculation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AACalculation.release.xcconfig"; path = "Pods/Target Support Files/Pods-AACalculation/Pods-AACalculation.release.xcconfig"; sourceTree = "<group>"; };
 		AB8093AA5FF3C75099597436 /* Pods-AACalculation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AACalculation.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AACalculation/Pods-AACalculation.debug.xcconfig"; sourceTree = "<group>"; };
 		D25A8D9BFC3F3D17FABD2A8E /* libPods-AACalculation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AACalculation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -373,6 +376,7 @@
 		2C43EA171CB357CE00032FD0 /* PersonPayViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2CF98D121CBBADDF000F0305 /* Dao */,
 				2C05FA761CB383BA006ED206 /* view */,
 				2C43EA1C1CB357FF00032FD0 /* PersonPayViewController.h */,
 				2C43EA1D1CB357FF00032FD0 /* PersonPayViewController.m */,
@@ -412,6 +416,15 @@
 				2C05FA9D1CB3E79C006ED206 /* WritePayView.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		2CF98D121CBBADDF000F0305 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				2CF98D131CBBAE18000F0305 /* PersonPayDao.h */,
+				2CF98D141CBBAE18000F0305 /* PersonPayDao.m */,
+			);
+			name = Dao;
 			sourceTree = "<group>";
 		};
 		F3C07CC654B67B4C815EFD19 /* Pods */ = {
@@ -538,6 +551,7 @@
 				2C43EA011CB2B0C700032FD0 /* AAColorManager.m in Sources */,
 				2C05FA881CB39E4F006ED206 /* HomeDao.m in Sources */,
 				2C43EA0F1CB2B99C00032FD0 /* AAScrollView.m in Sources */,
+				2CF98D151CBBAE18000F0305 /* PersonPayDao.m in Sources */,
 				2C43E9CE1CAE6E6000032FD0 /* AppDelegate.m in Sources */,
 				2C43EA1B1CB357EB00032FD0 /* PayListViewController.m in Sources */,
 				2C43EA051CB2B1DF00032FD0 /* ActivityTableViewCell.m in Sources */,

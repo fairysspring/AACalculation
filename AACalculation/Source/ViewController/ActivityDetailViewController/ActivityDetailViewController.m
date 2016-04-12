@@ -76,7 +76,7 @@
     self.wPersonPay.contentLabel.text = @"";
     WS();
     self.wPersonPay.tapBlock = ^(){
-        PersonPayViewController *vc = [[PersonPayViewController alloc] init];
+        PersonPayViewController *vc = [[PersonPayViewController alloc] initWithActivitySid:weakself.activitySid];
         [weakself.navigationController pushViewController:vc animated:YES];
     };
 }

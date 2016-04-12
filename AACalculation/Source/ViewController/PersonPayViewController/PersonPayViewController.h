@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface PersonPayViewController : BaseViewController
-
+@property(nonatomic, strong)NSNumber *activitiSid;
+-(instancetype)initWithActivitySid:(NSNumber *)activitiSid;
 @end

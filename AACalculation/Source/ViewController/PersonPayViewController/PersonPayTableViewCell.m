@@ -7,6 +7,7 @@
 //
 
 #import "PersonPayTableViewCell.h"
+#import "PayModel.h"
 
 @implementation PersonPayTableViewCell
 
@@ -14,10 +15,15 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+-(void)setPayModel:(PayModel *)payModel{
+    _payModel = payModel;
+    if (payModel.isSelfPayStyle) {
+        self.moneyLabel.textColor = [UIColor redColor];
+    }else{
+        self.moneyLabel.textColor = [UIColor blackColor];
+    }
+    
+    self.moneyLabel.text = _payModel.money.stringValue;
+    self.contentLabel.text = _payModel.name;
 }
-
 @end

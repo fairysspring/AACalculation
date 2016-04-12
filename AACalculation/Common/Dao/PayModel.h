@@ -16,6 +16,7 @@
 @property(nonatomic, strong)NSString *payPersonName;
 @property(nonatomic, strong)NSNumber *time;
 @property(nonatomic, strong)NSString *referPersonsSid;
+@property(nonatomic, assign)BOOL isSelfPayStyle;
 
 -(void)fillFMResultSet:(FMResultSet *)resultSet;
 

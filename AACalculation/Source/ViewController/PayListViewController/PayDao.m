@@ -33,15 +33,47 @@
     return [results copy];
 
 }
+-(NSArray *)payListForPerson:(NSNumber *)personSid{
+    NSString *select = [NSString stringWithFormat:@"select * from %@ where referPersonsSid LIKE '%%%@%%';",[PayModel tPayWithMark:self.belongToActivitySid.stringValue], personSid];
+    FMResultSet *resultSet = [[FMDBManager sharedInstance] executeQuery:select];
+    //遍历结果集合
+    NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:10];
+    NSArray *sidArray;
+    while ([resultSet  next])
+    {
+        PayModel *model = [[PayModel alloc] init];
+        [model fillFMResultSet:resultSet];
+        sidArray = model.referPersonsSidArray;
+        for (NSNumber *theSid in sidArray) {
+            if (theSid.integerValue == personSid.integerValue) {
+                [results addObject:model];
+            }
+        }
+    }
+    
+    return [results copy];
+}
+
+-(NSArray *)payByPerson:(NSNumber *)personSid{
+    NSString *select = [NSString stringWithFormat:@"select * from %@ where payPersonSid='%@';",[PayModel tPayWithMark:self.belongToActivitySid.stringValue], personSid];
+    FMResultSet *resultSet = [[FMDBManager sharedInstance] executeQuery:select];
+    //遍历结果集合
+    NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:10];
+    while ([resultSet  next])
+    {
+        PayModel *model = [[PayModel alloc] init];
+        [model fillFMResultSet:resultSet];
+//        model.money = @(model.money.integerValue*(-1.0));
+        [results addObject:model];
+    }
+    
+    return [results copy];
+}
 -(BOOL)addPay:(PayModel *)model{
     if (model.name == nil || model.name.length == 0 || model.referPersonsSid==nil || model.money == nil || model.payPersonSid == nil || model.payPersonName==nil) {
         return NO;
     }
-    /*
-     +(NSString *)queryStringForCreateWithMark:(NSString *)mark{
-     NSString *pay = [[self class] tPayWithMark:mark];
-     NSString *t_pay_create =[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (sid integer PRIMARY KEY AUTOINCREMENT, name text NOT NULL, money integer NOT NULL,payPersonSid integer NOT NULL, payPersonName text NOT NULL, time integer NOT NULL, referPersonsSid text NOT NULL)", pay];
-     */
+    
     model.time = @([[NSDate date] timeIntervalSince1970]);
     NSString *insert = [NSString stringWithFormat:@"INSERT INTO %@ (name, money, payPersonSid, payPersonName, time, referPersonsSid) VALUES ('%@', %@, %@, '%@', %@, '%@');",
                         [PayModel tPayWithMark:self.belongToActivitySid.stringValue],

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class PayModel;
 @interface PersonPayTableViewCell : UITableViewCell
+@property(nonatomic, strong)PayModel *payModel;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 @end
