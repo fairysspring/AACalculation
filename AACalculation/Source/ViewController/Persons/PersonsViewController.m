@@ -70,7 +70,11 @@
     if (self.showStyle == PersonsViewShowStyleNormal) {
          self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addActivity:)];
     }else if (self.showStyle == PersonsViewShowStyleSelectedReferPersons){
-         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:self action:@selector(finishReferSelected:)];
+        
+        UIBarButtonItem *selecteAllItem = [[UIBarButtonItem alloc] initWithTitle:@"选择" style:(UIBarButtonItemStylePlain) target:self action:@selector(tapSelectAll:)];
+        selecteAllItem.tag = 0;
+        UIBarButtonItem *finishItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:self action:@selector(finishReferSelected:)];
+        [self.navigationItem setRightBarButtonItems:@[ finishItem,selecteAllItem]];
     }else if (self.showStyle == PersonsViewShowStyleSelectedPayPerson){
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:self action:@selector(finishPaySelected:)];
     }else if (self.showStyle == PersonsViewShowStyleNormalLocal) {
@@ -84,6 +88,24 @@
         return;
     }
     [self showAddAlertView];
+}
+-(void)tapSelectAll:(UIButton *)button{
+    
+    [self.currentSelectedSidArray removeAllObjects];
+    for (PersonsModel *thePerson in self.listDataArray) {
+        if (button.tag == 0) {
+            [self.currentSelectedSidArray addObject:thePerson.sid];
+        }
+    }
+    
+    if (button.tag == 0) {
+        button.tag = 1;
+    }else{
+        button.tag = 0;
+    }
+    [self.listView.tableView reloadData];
+    self.title = [NSString stringWithFormat:@"已选择%lu人数",(unsigned long)self.currentSelectedSidArray .count];
+
 }
 -(void)finishReferSelected:(UIButton *)button{
     NSLog(@"finish");
@@ -139,6 +161,7 @@
 -(void)setSelectedSidArray:(NSArray *)selectedSidArray{
     _selectedSidArray = selectedSidArray;
     _currentSelectedSidArray = [_selectedSidArray mutableCopy];
+    self.title = [NSString stringWithFormat:@"已选择%lu人数",(unsigned long)_currentSelectedSidArray .count];
 }
 -(NSArray *)currentSelectedSidArray{
     if (!_currentSelectedSidArray) {
@@ -175,6 +198,7 @@
                 }
             }
         }
+         self.title = [NSString stringWithFormat:@"已选择%lu人数",(unsigned long)self.currentSelectedSidArray .count];
         [self.listView.tableView reloadData];
     }else if (self.showStyle == PersonsViewShowStyleSelectedPayPerson){
         PersonsModel *person = self.listDataArray[indexPath.row];
@@ -210,6 +234,7 @@
 -(void)requestData{
     if (self.showStyle == PersonsViewShowStyleNormalLocal) {
         self.listDataArray = [self.personDao personsListWithPersonSidArray:self.personsSidArray];
+        self.title = [NSString stringWithFormat:@"%lu人数",(unsigned long)self.listDataArray.count];
         return;
     }else{
         self.listDataArray = [self.personDao persons];
