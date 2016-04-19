@@ -18,7 +18,7 @@
 
 +(WritePayView *)writePayViewWithSid:(NSNumber *)sid{
     WritePayView *view = [[[NSBundle mainBundle] loadNibNamed:@"WritePayView" owner:self options:nil]objectAtIndex:0];
-    view.backgroundColor = [UIColor purpleColor];
+    view.backgroundColor = [AAColorManager colorForSeperator];
     view.width = AAScreenWidth;
     view.height = 226;
     view.top = 100;
@@ -35,7 +35,7 @@
         vc.selectedPayPersonsFinish = ^(NSNumber *paySid, NSString *name){
             weakself.payModel.payPersonSid = paySid;
             weakself.payModel.payPersonName = name;
-            weakself.payPersonButton.titleLabel.text = weakself.payModel.payPersonSid.stringValue;
+            [weakself.payPersonButton setTitle:[NSString stringWithFormat:@"%@(%@)",weakself.payModel.payPersonName,weakself.payModel.payPersonSid] forState:(UIControlStateNormal)];
             [weakself.containerViewController.navigationController popViewControllerAnimated:YES];
         };
         [self.containerViewController.navigationController pushViewController:vc animated:YES];
@@ -49,7 +49,7 @@
         WS();
         vc.selectedReferPersonsFinish = ^(NSArray *persons){
             weakself.payModel.referPersonsSid = [persons componentsJoinedByString:@","];
-            weakself.referPersonsButton.titleLabel.text = weakself.payModel.referPersonsSid;
+             [weakself.referPersonsButton setTitle:[NSString stringWithFormat:@"%lu人参与", (unsigned long)persons.count] forState:(UIControlStateNormal)];
             [weakself.containerViewController.navigationController popViewControllerAnimated:YES];
         };
         vc.selectedSidArray = [self.payModel referPersonsSidArray];
@@ -67,15 +67,7 @@
     }
     return _payModel;
 }
-/*
- @property(nonatomic, strong)NSNumber *sid;
- @property(nonatomic, strong)NSString *name;
- @property(nonatomic, strong)NSNumber *money;
- @property(nonatomic, strong)NSNumber *payPersonSid;
- @property(nonatomic, strong)NSString *payPersonName;
- @property(nonatomic, strong)NSNumber *time;
- @property(nonatomic, strong)NSString *referPersonsSid;
- */
+
 - (IBAction)tapSubmitButton:(id)sender {
     self.payModel.name = self.nameTextField.text;
     self.payModel.money = @(self.moneyTextField.text.integerValue);

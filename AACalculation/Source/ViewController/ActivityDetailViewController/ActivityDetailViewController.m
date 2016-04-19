@@ -12,12 +12,18 @@
 #import "PayListViewController.h"
 #import "PersonsViewController.h"
 #import "PersonPayViewController.h"
+#import "PersonsDao.h"
+#import "PayDao.h"
 
 @interface ActivityDetailViewController ()
+
 @property(nonatomic, strong)AAScrollView *contentScrollView;
 @property(nonatomic, strong)ActivityDetailItemView *wPersons;
 @property(nonatomic, strong)ActivityDetailItemView *wPay;
 @property(nonatomic, strong)ActivityDetailItemView *wPersonPay;
+
+@property(nonatomic, strong)PersonsDao *personsDao;
+@property(nonatomic, strong)PayDao *payDao;
 @end
 
 @implementation ActivityDetailViewController
@@ -26,6 +32,8 @@
     self = [super init];
     if (self) {
         self.activitySid = sid;
+        self.personsDao = [[PersonsDao alloc] initWithBelongToActivitySid:sid];
+        self.payDao = [[PayDao alloc] initWithActivitySid:sid];
     }
     return self;
 }
@@ -35,12 +43,11 @@
     [self setup];
 }
 -(void)setup{
-    self.title = @"活动1";
     
     self.contentScrollView = [[AAScrollView alloc] initWithFrame:CGRectMake(0, 0, AAScreenWidth, AAScreenHeight)];
     [self.view addSubview:self.contentScrollView];
     
-    self.contentScrollView.backgroundColor = [UIColor redColor];
+    self.contentScrollView.backgroundColor = [UIColor whiteColor];
     
     [self setupPersons];
     [self setupPay];
@@ -51,9 +58,11 @@
 }
 
 -(void)setupPersons{
+    
+    NSArray *persons = [self.personsDao persons];
     self.wPersons = [ActivityDetailItemView activityDetailItemView];
     self.wPersons.titleLabel.text = @"参与人";
-    self.wPersons.contentLabel.text = @"18个";
+    self.wPersons.contentLabel.text = [NSString stringWithFormat:@"%lu人",(unsigned long)persons.count];
     WS();
     self.wPersons.tapBlock = ^(){
         PersonsViewController *vc = [[PersonsViewController alloc] initWithActivitySid:weakself.activitySid];
@@ -61,9 +70,10 @@
     };
 }
 -(void)setupPay{
+    NSNumber *allPay = [self.payDao allPayMoney];
     self.wPay = [ActivityDetailItemView activityDetailItemView];
     self.wPay.titleLabel.text = @"花销列表";
-    self.wPay.contentLabel.text = @"¥2000";
+    self.wPay.contentLabel.text = [NSString stringWithFormat:@"总花费(%.2f元)",allPay.floatValue];
     WS();
     self.wPay.tapBlock = ^(){
         PayListViewController *vc = [[PayListViewController alloc] initWithActivitySid:weakself.activitySid];

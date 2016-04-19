@@ -31,7 +31,20 @@
     }
     
     return [results copy];
+}
 
+-(NSNumber *)allPayMoney{
+    NSString *select = [NSString stringWithFormat:@"select money from %@;",[PayModel tPayWithMark:self.belongToActivitySid.stringValue]];
+    FMResultSet *resultSet = [[FMDBManager sharedInstance] executeQuery:select];
+    //遍历结果集合
+    float allMoney = 0;
+    while ([resultSet  next])
+    {
+        NSNumber *money = [resultSet objectForColumnName:@"money"];
+        allMoney += money.floatValue;
+    }
+    
+    return @(allMoney);
 }
 -(NSArray *)payListForPerson:(NSNumber *)personSid{
     NSString *select = [NSString stringWithFormat:@"select * from %@ where referPersonsSid LIKE '%%%@%%';",[PayModel tPayWithMark:self.belongToActivitySid.stringValue], personSid];
@@ -46,6 +59,8 @@
         sidArray = model.referPersonsSidArray;
         for (NSNumber *theSid in sidArray) {
             if (theSid.integerValue == personSid.integerValue) {
+                //计算平均花费
+                model.money = @(model.money.floatValue/model.referPersonsSidArray.count);
                 [results addObject:model];
             }
         }
@@ -63,7 +78,6 @@
     {
         PayModel *model = [[PayModel alloc] init];
         [model fillFMResultSet:resultSet];
-//        model.money = @(model.money.integerValue*(-1.0));
         [results addObject:model];
     }
     

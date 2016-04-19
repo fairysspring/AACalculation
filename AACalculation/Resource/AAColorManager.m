@@ -18,7 +18,7 @@
 }
 
 +(UIColor *)colorForTest{
-    return [UIColor yellowColor];
+    return [UIColor whiteColor];
 }
 
 

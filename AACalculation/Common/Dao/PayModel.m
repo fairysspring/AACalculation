@@ -11,7 +11,7 @@
 @implementation PayModel
 +(NSString *)queryStringForCreateWithMark:(NSString *)mark{
     NSString *pay = [[self class] tPayWithMark:mark];
-    NSString *t_pay_create =[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (sid integer PRIMARY KEY AUTOINCREMENT, name text NOT NULL, money integer NOT NULL,payPersonSid integer NOT NULL, payPersonName text NOT NULL, time integer NOT NULL, referPersonsSid text NOT NULL)", pay];
+    NSString *t_pay_create =[NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS %@ (sid integer PRIMARY KEY AUTOINCREMENT, name text NOT NULL, money float NOT NULL,payPersonSid integer NOT NULL, payPersonName text NOT NULL, time integer NOT NULL, referPersonsSid text NOT NULL)", pay];
     return t_pay_create;
 }
 +(NSString *)tPayWithMark:(NSString *)mark{

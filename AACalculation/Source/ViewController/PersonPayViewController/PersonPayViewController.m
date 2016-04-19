@@ -38,7 +38,7 @@
 //    self.navigationItem.rightBarButtonItem = nil;[[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addActivity:)];
     
     //view
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     //listview
     self.listView = [[AABigListView alloc] init];
     [self.view addSubview:self.listView];
@@ -92,7 +92,7 @@
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
      PersonPayDetail *personPayDetail = self.personsPayArray[section];
-    NSString *content = [NSString stringWithFormat:@"%@(需付款：%@)",personPayDetail.person.name, personPayDetail.money];
+    NSString *content = [NSString stringWithFormat:@"%@(需付款：%.2f)",personPayDetail.person.name, personPayDetail.money.floatValue];
     return content;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -102,11 +102,12 @@
     return 25;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(void)requestPersonPayDetail{
     self.personsPayArray = [self.personPayDao personPayList];
+    self.title = [NSString stringWithFormat:@"%lu",(unsigned long)self.personsPayArray.count];
     [self.listView.tableView reloadData];
 }
 - (BOOL)hasMore:(AABigListView *)bigListView{

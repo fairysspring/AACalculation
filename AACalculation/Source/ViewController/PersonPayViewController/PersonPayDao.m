@@ -33,18 +33,18 @@
     for(PersonsModel *thePerson in [self.persondao persons]){
         //个人参与的项目
         NSArray *payForPerson = [self.paydao payListForPerson:thePerson.sid];
-        int allMoney = 0;
+        float allMoney = 0;
         for (PayModel *thePay in payForPerson) {
-            allMoney += thePay.money.integerValue;
+            allMoney += thePay.money.floatValue;
         }
         //个人付款的项目
         NSArray *payByPerson = [self.paydao payByPerson:thePerson.sid];
-        int allMoneyByPerson = 0;
+        float allMoneyByPerson = 0;
         for (PayModel *thePayByPerson in payByPerson) {
-            allMoneyByPerson += thePayByPerson.money.integerValue;
+            allMoneyByPerson += thePayByPerson.money.floatValue;
         }
         //需要付款
-        int moneyToPay = (allMoney-allMoneyByPerson);
+        float moneyToPay = (allMoney-allMoneyByPerson);
         
         PersonPayDetail *detail = [[PersonPayDetail alloc] init];
         detail.person = thePerson;

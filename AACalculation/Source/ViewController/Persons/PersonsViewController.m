@@ -31,6 +31,8 @@
     }
     return self;
 }
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setup];
@@ -38,7 +40,7 @@
 
 -(void)setup{
     //view
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     //listview
     self.listView = [[AABigListView alloc] init];
     [self.view addSubview:self.listView];
@@ -71,11 +73,16 @@
          self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:self action:@selector(finishReferSelected:)];
     }else if (self.showStyle == PersonsViewShowStyleSelectedPayPerson){
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemDone) target:self action:@selector(finishPaySelected:)];
+    }else if (self.showStyle == PersonsViewShowStyleNormalLocal) {
+        self.navigationItem.rightBarButtonItem = nil;
     }
    
 }
 -(void)addActivity:(UIButton *)button{
     NSLog(@"add");
+    if (self.showStyle == PersonsViewShowStyleNormalLocal) {
+        return;
+    }
     [self showAddAlertView];
 }
 -(void)finishReferSelected:(UIButton *)button{
@@ -90,7 +97,7 @@
     }
 }
 -(void)showAddAlertView{
-    UIAlertView *alert = [[UIAlertView alloc] initWithMessage:@"添加活动" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithMessage:@"添加参与人" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"]];
     
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     WS();
@@ -179,8 +186,9 @@
             self.currentSelectedPayPerson = nil;
         }
         [self.listView.tableView reloadData];
+    }else if (self.showStyle == PersonsViewShowStyleNormalLocal){
     }
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 -(BOOL)isSelectedPerson:(PersonsModel *)person{
@@ -200,7 +208,13 @@
 }
 
 -(void)requestData{
-    self.listDataArray = [self.personDao persons];
+    if (self.showStyle == PersonsViewShowStyleNormalLocal) {
+        self.listDataArray = [self.personDao personsListWithPersonSidArray:self.personsSidArray];
+        return;
+    }else{
+        self.listDataArray = [self.personDao persons];
+    }
+    
     [self.listView.tableView reloadData];
 }
 - (BOOL)hasMore:(AABigListView *)bigListView{
@@ -216,11 +230,19 @@
 
 
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell tappedButtonAtIndex:(NSInteger) index direction:(MGSwipeDirection)direction fromExpansion:(BOOL) fromExpansion{
+    if (self.showStyle == PersonsViewShowStyleNormalLocal) {
+        return NO;
+    }
     NSIndexPath *indexPath = [self.listView.tableView indexPathForCell:cell];
     if (indexPath.row < self.listDataArray.count && indexPath.row >= 0) {
-        //TODO
+        //存在花费 不能删除
         PersonsModel *model = self.listDataArray[indexPath.row];
-        [self.personDao deletePerson:model];
+        BOOL result = [self.personDao deletePerson:model];
+        if (!result) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithMessage:@"跟钱打交道了,还想跑路～ 这样不好" cancelButtonTitle:@"钻帐篷"];
+            [alert show];
+            return YES;
+        }
         [self.listView reloadData];
     }
     

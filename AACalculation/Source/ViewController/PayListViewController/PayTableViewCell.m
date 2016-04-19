@@ -8,6 +8,7 @@
 
 #import "PayTableViewCell.h"
 #import "PayModel.h"
+#import "PersonsViewController.h"
 
 @implementation PayTableViewCell
 
@@ -19,12 +20,14 @@
 -(void)setModel:(PayModel *)model{
     _model = model;
     self.contentLabel.text = model.name;
-    self.payNumberLabel.text = [NSString stringWithFormat:@"¥%@",model.money.stringValue];
+    self.payNumberLabel.text = [NSString stringWithFormat:@"¥%.2f",model.money.floatValue];
     self.payPerson.text = model.payPersonName;
     self.timeLabel.text = model.time.stringValue;
 }
 
 - (IBAction)tapReferPersons:(id)sender {
+    //参与的人
+    self.tapReferPersonsBlock(self.model.referPersonsSidArray);
     
 }
 

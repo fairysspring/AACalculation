@@ -13,6 +13,7 @@
 -(instancetype)initWithBelongToActivitySid:(NSNumber *)sid;
 
 -(NSArray *)persons;
+-(NSArray *)personsListWithPersonSidArray:(NSArray *)personSidArray;
 -(BOOL)addPerson:(PersonsModel *)model;
 -(BOOL)deletePerson:(PersonsModel *)model;
 @end

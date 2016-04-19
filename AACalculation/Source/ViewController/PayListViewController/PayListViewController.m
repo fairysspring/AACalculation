@@ -12,6 +12,7 @@
 #import "PayDao.h"
 #import "PayModel.h"
 #import "WritePayView.h"
+#import "PersonsViewController.h"
 
 @interface PayListViewController ()<UITableViewDataSource, UITableViewDelegate, AABigListViewDelegate, MGSwipeTableCellDelegate>
 @property(nonatomic, strong)AABigListView *listView;
@@ -39,7 +40,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemAdd) target:self action:@selector(addActivity:)];
 
     //view
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     //listview
     self.listView = [[AABigListView alloc] init];
     [self.view addSubview:self.listView];
@@ -77,17 +78,25 @@
     return self.listDataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     PayTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.delegate = self;
     cell.model = self.listDataArray[indexPath.row];
+    WS();
+    cell.tapReferPersonsBlock = ^(NSArray *personsSidArray){
+        PersonsViewController *personVC = [[PersonsViewController alloc] initWithActivitySid:self.activitySid];
+        personVC.personsSidArray = personsSidArray;
+        personVC.showStyle = PersonsViewShowStyleNormalLocal;
+        [weakself.navigationController pushViewController:personVC animated:YES];
+    };
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 150;
+    return 100;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-   
+   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 -(void)requestData{
     self.listDataArray = [self.payDao payList];

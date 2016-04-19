@@ -23,7 +23,7 @@
         self.moneyLabel.textColor = [UIColor blackColor];
     }
     
-    self.moneyLabel.text = _payModel.money.stringValue;
+    self.moneyLabel.text = [NSString stringWithFormat:@"%.2f",_payModel.money.floatValue];
     self.contentLabel.text = _payModel.name;
 }
 @end

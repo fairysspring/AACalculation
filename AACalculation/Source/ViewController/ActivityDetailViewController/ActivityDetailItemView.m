@@ -11,7 +11,7 @@
 @implementation ActivityDetailItemView
 +(ActivityDetailItemView *)activityDetailItemView{
     ActivityDetailItemView *view = [[[NSBundle mainBundle] loadNibNamed:@"ActivityDetailItemView" owner:self options:nil]objectAtIndex:0];
-    view.backgroundColor = [UIColor purpleColor];
+    view.backgroundColor = [UIColor whiteColor];
     view.width = AAScreenWidth;
     view.height = 50;
     

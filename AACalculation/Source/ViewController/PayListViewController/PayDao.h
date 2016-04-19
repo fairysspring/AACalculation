@@ -13,6 +13,7 @@
 -(instancetype)initWithActivitySid:(NSNumber *)sid;
 
 -(NSArray *)payList;
+-(NSNumber *)allPayMoney;
 -(NSArray *)payListForPerson:(NSNumber *)personSid;
 /**
  *  付款项

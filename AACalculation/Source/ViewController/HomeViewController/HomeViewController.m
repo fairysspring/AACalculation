@@ -30,7 +30,7 @@
 
 -(void)setup{
     //view
-    self.view.backgroundColor = [UIColor redColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     //listview
     self.listView = [[AABigListView alloc] init];
     [self.view addSubview:self.listView];
@@ -72,12 +72,14 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 100;
+    return 50;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ActivityModel *model = self.listDataArray[indexPath.row];
     ActivityDetailViewController *vc = [[ActivityDetailViewController alloc] initWithActivitySid:model.sid];
+    vc.title = model.name;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

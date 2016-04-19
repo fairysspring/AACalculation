@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1713" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -11,27 +11,34 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hs2-uY-nOR">
-                    <rect key="frame" x="15" y="18" width="163" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hs2-uY-nOR">
+                    <rect key="frame" x="15" y="18" width="293.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="peaple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRP-Tx-GFx">
-                    <rect key="frame" x="284" y="18" width="52" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="peaple" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRP-Tx-GFx">
+                    <rect key="frame" x="308" y="18" width="51.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dRP-Tx-GFx" firstAttribute="leading" secondItem="hs2-uY-nOR" secondAttribute="trailing" priority="250" id="Cj7-Ia-mJh"/>
+                <constraint firstItem="dRP-Tx-GFx" firstAttribute="centerY" secondItem="hs2-uY-nOR" secondAttribute="centerY" id="JeP-WN-A4a"/>
+                <constraint firstItem="hs2-uY-nOR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="RYY-zN-1V6"/>
+                <constraint firstItem="hs2-uY-nOR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="iEs-ju-uRa"/>
+                <constraint firstAttribute="trailing" secondItem="dRP-Tx-GFx" secondAttribute="trailing" constant="15" id="j8i-9a-6rY"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="contentLabel" destination="dRP-Tx-GFx" id="XS4-W5-odm"/>
                 <outlet property="titleLabel" destination="hs2-uY-nOR" id="rC2-OF-AMM"/>
             </connections>
-            <point key="canvasLocation" x="259.5" y="103.5"/>
+            <point key="canvasLocation" x="293.5" y="110.5"/>
         </view>
     </objects>
 </document>

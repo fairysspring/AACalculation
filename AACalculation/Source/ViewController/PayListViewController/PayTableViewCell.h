@@ -18,4 +18,5 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *referPersonsButton;
 
+@property (nonatomic, copy)void (^tapReferPersonsBlock)(NSArray *persons);
 @end
